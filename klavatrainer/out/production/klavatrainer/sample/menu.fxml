@@ -19,7 +19,7 @@
    <children>
       <AnchorPane prefHeight="651.0" prefWidth="938.0">
          <children>
-            <Button fx:id="startButton" layoutX="230.0" layoutY="127.0" mnemonicParsing="false" onAction="#showGame" prefHeight="103.0" prefWidth="491.0" text="Старт" textFill="#322b2b">
+            <Button fx:id="startButton" layoutX="230.0" layoutY="127.0" mnemonicParsing="false" onAction="#showTraining" prefHeight="103.0" prefWidth="491.0" text="Старт" textFill="#322b2b">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>

@@ -1,19 +1,16 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    private static Metod metod;
+    private static ScreenManager screenManager;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        metod = new Metod();
-        Metod.showWindows("menu.fxml");
+        screenManager = new ScreenManager();
+        ScreenManager.showWindows("menu.fxml");
     }
 
 

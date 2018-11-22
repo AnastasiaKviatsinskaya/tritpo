@@ -3,9 +3,7 @@ package sample;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,22 +16,24 @@ public class MenuController {
     @FXML
     public void initialize()
     {
-        startButton.setStyle(Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor());
-        exitButton.setStyle(Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor());
-        settingButton.setStyle(Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor());
+        startButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
+        exitButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
+        settingButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
     }
 
-    public void showGame(ActionEvent event)
-    {
-        /*Stage stage = (Stage) startButton.getScene().getWindow();
-        Metod.closeWindows(stage);
-        Metod.showWindows("game.fxml");*/
+    public void showTraining(ActionEvent event) throws IOException {
+        Stage stage = (Stage) startButton.getScene().getWindow();
+        ScreenManager.closeWindows(stage);
+        if(ScreenManager.getTrainingInformation().getTypeOfTraining().equalsIgnoreCase("learning"))
+            ScreenManager.showWindows("learningTraining.fxml");
+        else
+            ScreenManager.showWindows("speedTraining.fxml");
     }
 
     public void showSetting(ActionEvent event) throws IOException {
         Stage stage = (Stage) startButton.getScene().getWindow();
-        Metod.closeWindows(stage);
-        Metod.showWindows("settings.fxml");
+        ScreenManager.closeWindows(stage);
+        ScreenManager.showWindows("settings.fxml");
     }
 
     public void exit(ActionEvent event)

@@ -22,14 +22,13 @@ public class SettingsController {
     @FXML
     public void initialize()
     {
-
-        saveButton.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
-        menuButton.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
-        backgroundDownloadButton.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
-        backgroundColorChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
-        fontColoreChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
-        fontSizeChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
-        trainingChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        saveButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        menuButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        backgroundDownloadButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        backgroundColorChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        fontColoreChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        fontSizeChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        trainingChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
         fontSizeChoice.getItems().setAll("36");
         fontSizeChoice.getSelectionModel().selectFirst();
         fontColoreChoice.getItems().setAll("green", "blue");
@@ -47,17 +46,16 @@ public class SettingsController {
 
     public void showMenu() throws IOException {
         Stage stage = (Stage) menuButton.getScene().getWindow();
-        Metod.closeWindows(stage);
-        Metod.showWindows("menu.fxml");
+        ScreenManager.closeWindows(stage);
+        ScreenManager.showWindows("menu.fxml");
     }
 
     public void saveSettings() throws IOException {
-        Metod.getGuiInformation().setBackgroundColor(backgroundColorChoice.getValue().toString());
-        Metod.getGuiInformation().setButtonBackgroundColor(backgroundColorChoice.getValue().toString());
-        Metod.getGuiInformation().setFontColor(fontColoreChoice.getValue().toString());
+        ScreenManager.getGuiInformation().setBackgroundColor(backgroundColorChoice.getValue().toString());
+        ScreenManager.getGuiInformation().setFontColor(fontColoreChoice.getValue().toString());
         Stage stage = (Stage) menuButton.getScene().getWindow();
-        Metod.closeWindows(stage);
-        Metod.showWindows("settings.fxml");
+        ScreenManager.closeWindows(stage);
+        ScreenManager.showWindows("settings.fxml");
     }
 
 }

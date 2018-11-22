@@ -4,7 +4,7 @@ public class TrainingInformation {
     private int currentLevel;
     private String reference;
     private String text;
-    private String typeOfTraining;
+    private static String typeOfTraining;
 
     public TrainingInformation()
     {
