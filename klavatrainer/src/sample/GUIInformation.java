@@ -3,16 +3,26 @@ package sample;
 public class GUIInformation
 {
 
-    private String backgroundColor;
-    private String buttonBackgroundColor;
-    private String fontColor;
-    private String fontSize;
+    private static String backgroundColor;
+    private static String buttonBackgroundColor;
+    private static String fontColor;
+    private static String fontSize;
+
+    private final String greenBackgroundColor = "-fx-background-color: green;";
+    private final String greenButtonBackgroundColor = "-fx-background-color: darkgreen;";
+    private final String greenFontColor = "-fx-text-fill: springgreen;";
+
+    private final String blueBackgroundColor = "-fx-background-color: blue;";
+    private final String blueButtonBackgroundColor = "-fx-background-color: darkblue;";
+    private final String blueFontColor = "-fx-text-fill: deepskyblue;";
+
+
 
     public GUIInformation()
     {
-        this.backgroundColor = "-fx-background-color: green;";
-        this.buttonBackgroundColor = "-fx-background-color: linear-gradient(#f0ff35, #a9ff00), radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);";
-        this.fontColor = "-fx-text-fill: #green;";
+        this.backgroundColor = greenBackgroundColor;
+        this.buttonBackgroundColor = greenButtonBackgroundColor;
+        this.fontColor = greenFontColor;
         this.fontSize = "36";
     }
 
@@ -21,9 +31,35 @@ public class GUIInformation
         return this.backgroundColor;
     }
 
+    public void setBackgroundColor(String color)
+    {
+        if(color.equalsIgnoreCase("green"))
+        {
+            this.backgroundColor = greenBackgroundColor;
+        }
+
+        if(color.equalsIgnoreCase("blue"))
+        {
+            this.backgroundColor = blueBackgroundColor;
+        }
+    }
+
     public String getButtonBackgroundColor()
     {
         return this.buttonBackgroundColor;
+    }
+
+    public void setButtonBackgroundColor(String color)
+    {
+        if(color.equalsIgnoreCase("green"))
+        {
+            this.buttonBackgroundColor = greenButtonBackgroundColor;
+        }
+
+        if(color.equalsIgnoreCase("blue"))
+        {
+            this.buttonBackgroundColor = blueButtonBackgroundColor;
+        }
     }
 
     public String getFontColor()
@@ -31,8 +67,26 @@ public class GUIInformation
         return this.fontColor;
     }
 
+    public void setFontColor(String color)
+    {
+        if(color.equalsIgnoreCase("green"))
+        {
+            this.fontColor = greenFontColor;
+        }
+
+        if(color.equalsIgnoreCase("blue"))
+        {
+            this.fontColor = blueFontColor;
+        }
+    }
+
     public String getFontSize()
     {
         return this.fontSize;
+    }
+
+    public void setFontSize(String size)
+    {
+        this.fontSize = size;
     }
 }

@@ -8,20 +8,19 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class MenuController {
 
     @FXML
     Button startButton, exitButton, settingButton;
 
-    private Metod metod;
-
     @FXML
     public void initialize()
     {
-        metod = new Metod();
-        startButton.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        exitButton.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        settingButton.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
+        startButton.setStyle(Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor());
+        exitButton.setStyle(Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor());
+        settingButton.setStyle(Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor());
     }
 
     public void showGame(ActionEvent event)
@@ -31,8 +30,7 @@ public class MenuController {
         Metod.showWindows("game.fxml");*/
     }
 
-    public void showSetting(ActionEvent event)
-    {
+    public void showSetting(ActionEvent event) throws IOException {
         Stage stage = (Stage) startButton.getScene().getWindow();
         Metod.closeWindows(stage);
         Metod.showWindows("settings.fxml");
@@ -41,6 +39,5 @@ public class MenuController {
     public void exit(ActionEvent event)
     {
         Platform.exit();
-
     }
 }

@@ -7,10 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    private static Metod metod;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+        metod = new Metod();
         Metod.showWindows("menu.fxml");
     }
 

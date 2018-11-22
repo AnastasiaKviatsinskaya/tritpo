@@ -6,6 +6,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class SettingsController {
 
     @FXML
@@ -17,25 +19,22 @@ public class SettingsController {
     @FXML
     RadioButton showKeyboard, hintKeyboard;
 
-    private Metod metod;
-
     @FXML
     public void initialize()
     {
-        metod = new Metod();
-        saveButton.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        menuButton.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        backgroundDownloadButton.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        backgroundColorChoice.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        fontColoreChoice.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        fontSizeChoice.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        trainingChoice.setStyle(metod.getGuiInformation().getButtonBackgroundColor());
-        trainingChoice.setStyle("-fx-te");
+
+        saveButton.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        menuButton.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        backgroundDownloadButton.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        backgroundColorChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        fontColoreChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        fontSizeChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
+        trainingChoice.setStyle((Metod.getGuiInformation().getFontColor() + Metod.getGuiInformation().getButtonBackgroundColor()));
         fontSizeChoice.getItems().setAll("36");
         fontSizeChoice.getSelectionModel().selectFirst();
-        fontColoreChoice.getItems().setAll("green", "black");
+        fontColoreChoice.getItems().setAll("green", "blue");
         fontColoreChoice.getSelectionModel().selectFirst();
-        backgroundColorChoice.getItems().setAll("green");
+        backgroundColorChoice.getItems().setAll("green", "blue");
         backgroundColorChoice.getSelectionModel().selectFirst();
         trainingChoice.getItems().setAll("learning", "speed");
         trainingChoice.getSelectionModel().selectFirst();
@@ -46,16 +45,19 @@ public class SettingsController {
 
     }
 
-    public void showMenu()
-    {
+    public void showMenu() throws IOException {
         Stage stage = (Stage) menuButton.getScene().getWindow();
         Metod.closeWindows(stage);
         Metod.showWindows("menu.fxml");
     }
 
-    public void saveSettings()
-    {
-
+    public void saveSettings() throws IOException {
+        Metod.getGuiInformation().setBackgroundColor(backgroundColorChoice.getValue().toString());
+        Metod.getGuiInformation().setButtonBackgroundColor(backgroundColorChoice.getValue().toString());
+        Metod.getGuiInformation().setFontColor(fontColoreChoice.getValue().toString());
+        Stage stage = (Stage) menuButton.getScene().getWindow();
+        Metod.closeWindows(stage);
+        Metod.showWindows("settings.fxml");
     }
 
 }

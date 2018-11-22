@@ -23,26 +23,16 @@ public class Metod {
         trainingInformation = new TrainingInformation();
     }
 
-    public static void showWindows(String str){
+    public static void showWindows(String str) throws IOException {
         Stage primaryStage = new Stage();
         Pane mainPane;
+        mainPane = FXMLLoader.load(Main.class.getResource(str));
+        mainPane.setStyle(guiInformation.getBackgroundColor());
+        primaryStage.setScene(new Scene(mainPane));
+        primaryStage.setTitle("Trainer");
+        primaryStage.setResizable(false);
+        primaryStage.show();
 
-        try {
-            /*Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-            primaryStage.setTitle("Trainer");
-            primaryStage.setScene(new Scene(root, 938, 651));
-            primaryStage.show();
-            */
-            mainPane = FXMLLoader.load(Main.class.getResource(str));
-            mainPane.setStyle(guiInformation.getBackgroundColor());
-            mainPane.setStyle(guiInformation.getFontColor());
-            primaryStage.setScene(new Scene(mainPane));
-            primaryStage.setTitle("Trainer");
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void closeWindows(Stage stage) {
