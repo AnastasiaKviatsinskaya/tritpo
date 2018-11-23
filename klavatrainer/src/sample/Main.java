@@ -10,7 +10,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         screenManager = new ScreenManager();
-        ScreenManager.showWindows("menu.fxml");
+        screenManager.showWindows("menu.fxml");
     }
 
 

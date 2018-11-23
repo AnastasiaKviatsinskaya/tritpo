@@ -19,7 +19,7 @@ public class Metod {
 
     public Metod()
     {
-        guiInformation = new GUIInformation();
+        guiInformation = new GUIInformation("green", "green", "36");
         trainingInformation = new TrainingInformation();
     }
 
