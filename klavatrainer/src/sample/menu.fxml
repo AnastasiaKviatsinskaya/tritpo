@@ -24,7 +24,7 @@
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Button>
-            <Button fx:id="settingButton" layoutX="230.0" layoutY="285.0" mnemonicParsing="false" onAction="#showSetting" prefHeight="103.0" prefWidth="491.0" text="Настройки" textFill="#322b2b">
+            <Button fx:id="settingButton" layoutX="230.0" layoutY="285.0" mnemonicParsing="false" onAction="#showSettings" prefHeight="103.0" prefWidth="491.0" text="Настройки" textFill="#322b2b">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>

@@ -16,9 +16,9 @@ public class MenuController {
     @FXML
     public void initialize()
     {
-        startButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
+        /*startButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
         exitButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
-        settingButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");
+        settingButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() +";");*/
     }
 
     public void showTraining(ActionEvent event) throws IOException {
@@ -30,7 +30,7 @@ public class MenuController {
             ScreenManager.showWindows("speedTraining.fxml");
     }
 
-    public void showSetting(ActionEvent event) throws IOException {
+    public void showSettings(ActionEvent event) throws IOException {
         Stage stage = (Stage) startButton.getScene().getWindow();
         ScreenManager.closeWindows(stage);
         ScreenManager.showWindows("settings.fxml");

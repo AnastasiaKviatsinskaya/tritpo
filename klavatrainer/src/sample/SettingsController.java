@@ -22,20 +22,20 @@ public class SettingsController {
     @FXML
     public void initialize()
     {
-        saveButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
-        menuButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
-        backgroundDownloadButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        /*saveButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
+        menuButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");*/
+        //backgroundDownloadButton.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
         backgroundColorChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
         fontColoreChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
         fontSizeChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
         trainingChoice.setStyle("-fx-text-fill: " + ScreenManager.getGuiInformation().getFontColor() + ";");
         fontSizeChoice.getItems().setAll("36");
         fontSizeChoice.getSelectionModel().selectFirst();
-        fontColoreChoice.getItems().setAll("green", "blue");
+        //fontColoreChoice.getItems().setAll("green", "blue");
         fontColoreChoice.getSelectionModel().selectFirst();
-        backgroundColorChoice.getItems().setAll("green", "blue");
+        backgroundColorChoice.getItems().setAll("green", "blue", "red", "black", "yellow");
         backgroundColorChoice.getSelectionModel().selectFirst();
-        trainingChoice.getItems().setAll("learning", "speed");
+        trainingChoice.getItems().setAll("learning");
         trainingChoice.getSelectionModel().selectFirst();
     }
 
@@ -52,7 +52,7 @@ public class SettingsController {
 
     public void saveSettings() throws IOException {
         ScreenManager.getGuiInformation().setBackgroundColor(backgroundColorChoice.getValue().toString());
-        ScreenManager.getGuiInformation().setFontColor(fontColoreChoice.getValue().toString());
+        //ScreenManager.getGuiInformation().setFontColor(fontColoreChoice.getValue().toString());
         Stage stage = (Stage) menuButton.getScene().getWindow();
         ScreenManager.closeWindows(stage);
         ScreenManager.showWindows("settings.fxml");
