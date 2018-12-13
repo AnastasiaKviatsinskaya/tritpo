@@ -34,9 +34,9 @@ public class SettingsController {
         //fontColoreChoice.getItems().setAll("green", "blue");
         fontColoreChoice.getSelectionModel().selectFirst();
         backgroundColorChoice.getItems().setAll("green", "blue", "red", "black", "yellow");
-        backgroundColorChoice.getSelectionModel().selectFirst();
-        trainingChoice.getItems().setAll("learning");
-        trainingChoice.getSelectionModel().selectFirst();
+        backgroundColorChoice.getSelectionModel().select(ScreenManager.getGuiInformation().getBackgroundColor());
+        trainingChoice.getItems().setAll("learning", "speed");
+        trainingChoice.getSelectionModel().select(ScreenManager.getTrainingInformation().getTypeOfTraining());
     }
 
     public void downloadImage()
@@ -53,6 +53,7 @@ public class SettingsController {
     public void saveSettings() throws IOException {
         ScreenManager.getGuiInformation().setBackgroundColor(backgroundColorChoice.getValue().toString());
         //ScreenManager.getGuiInformation().setFontColor(fontColoreChoice.getValue().toString());
+        ScreenManager.getTrainingInformation().setTypeOfTraining(trainingChoice.getValue().toString());
         Stage stage = (Stage) menuButton.getScene().getWindow();
         ScreenManager.closeWindows(stage);
         ScreenManager.showWindows("settings.fxml");

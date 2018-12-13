@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="klavatrainer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/klavatrainer_jar</output-path>
+    <root id="archive" name="klavatrainer.jar">
+      <element id="module-output" name="klavatrainer" />
+    </root>
+  </artifact>
+</component>

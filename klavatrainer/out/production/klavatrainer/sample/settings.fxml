@@ -58,7 +58,7 @@
             <ComboBox fx:id="backgroundColorChoice" layoutX="121.0" layoutY="56.0" prefHeight="25.0" prefWidth="95.0" />
             <ComboBox fx:id="trainingChoice" layoutX="168.0" layoutY="93.0" prefHeight="25.0" prefWidth="95.0" />
             <ComboBox fx:id="fontColoreChoice" layoutX="395.0" layoutY="20.0" prefHeight="25.0" prefWidth="95.0" />
-            <RadioButton fx:id="showKeyboard" layoutX="14.0" layoutY="158.0" mnemonicParsing="false" text="Паказывать клавиатуру">
+            <RadioButton fx:id="showKeyboard" layoutX="14.0" layoutY="158.0" mnemonicParsing="false" text="Показывать клавиатуру">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>

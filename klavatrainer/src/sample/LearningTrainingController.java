@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -12,6 +13,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
+import javax.swing.text.Caret;
 import java.io.*;
 import java.util.Random;
 
@@ -28,7 +30,7 @@ public class LearningTrainingController {
     @FXML
     ImageView keyboardImage;
 
-    private int mistakes;
+    private int mistakes = 0;
     private final String stringSymbolsEnglish = "dfjksal;vbnmtgyheruiqwopcx,.z/[]";
     private final String stringSymbolsRussian = "ваолыфджимтьепнрукгшйцщзсчбюя.хъ";
     private final int textSize = 10;
@@ -47,6 +49,7 @@ public class LearningTrainingController {
         levelChoice.getItems().setAll("level1", "level2", "level3", "level4", "level5", "level6", "level7");
         levelChoice.getSelectionModel().selectFirst();
         textArea.setEditable(false);
+        inputArea.setEditable(false);
         this.inputArea.textProperty().addListener((observable, oldValue, newValue) -> this.write(oldValue, newValue) );
     }
 
@@ -59,21 +62,29 @@ public class LearningTrainingController {
                     shiftText();
                     textArea.setText(this.text + "\n");
                     writedSymbols++;
-                    if(writedSymbols == textSize)
+                    if(text.length() == 0)
                     {
-                        int result = 100 - (mistakes % textSize)*10;
+                        int result;
+                        if(mistakes < textSize)
+                            result = 100 - (mistakes % textSize)*10;
+                        else
+                            result = 0;
                         textArea.setText("Number of mistakes - " + Integer.toString(mistakes)
                                          + "\nCorrect " + Integer.toString(result) + "%");
                         startButton.setText("Start");
                         writedSymbols = 0;
-                        levelChoice.getSelectionModel().selectNext();
+                        mistakes = 0;
+                        if(result >= 80)
+                            levelChoice.getSelectionModel().selectNext();
                         inputArea.setText("");
+                        inputArea.setEditable(false);
                     }
-
                 }
                 else
                 {
                     incMistakes();
+                    String badText = inputArea.getText();
+                    inputArea.setText(badText.substring(0, badText.length() - 1));
                 }
             }
         }
@@ -85,6 +96,8 @@ public class LearningTrainingController {
             startButton.setText("Stop");
             generateText();
             textArea.setText(this.text + "\n");
+            inputArea.setEditable(true);
+            inputArea.requestFocus();
         }
         else
         {
@@ -119,7 +132,7 @@ public class LearningTrainingController {
         String currentLine;
         while((currentLine = bufferedReader.readLine()) != null)
         {
-            textArea.appendText(currentLine);
+            textArea.setText(currentLine);
         }
     }
 
@@ -131,5 +144,7 @@ public class LearningTrainingController {
     public void setNewLevel(){
         levelChoice.getSelectionModel().selectNext();
     }
+
+
 
 }

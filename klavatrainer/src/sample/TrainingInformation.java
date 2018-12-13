@@ -1,15 +1,15 @@
 package sample;
 
 public class TrainingInformation {
-    private int currentLevel;
-    private String reference;
-    private String text;
+    private static boolean showKeyboard;
+    private static boolean showKeyboardIfMistake;
     private static String typeOfTraining;
 
     public TrainingInformation()
     {
-        this.currentLevel = 0;
-        this.typeOfTraining = "learning";
+        showKeyboard = true;
+        showKeyboardIfMistake = false;
+        typeOfTraining = "learning";
     }
 
     public void setTypeOfTraining(String typeOfTraining) {
@@ -18,6 +18,6 @@ public class TrainingInformation {
 
     public String getTypeOfTraining()
     {
-        return this.typeOfTraining;
+        return typeOfTraining;
     }
 }
